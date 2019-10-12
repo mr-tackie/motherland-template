@@ -1,0 +1,139 @@
+.card{
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    min-height: 52rem;
+
+    &__side{
+        min-height: 52rem;
+        font-size: 1.6rem;
+        transition: all .8s ease;    
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front{
+            background-color: $color-white;
+        }
+
+        &--back{
+            transform: rotateY(180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-amber-light, $color-amber-dark);
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-green-light, $color-green-dark);
+            }
+        }
+    }
+    
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back{
+        transform: rotateY(0);
+    }
+
+    &__picture{
+        background-size: cover;
+        min-height: 23rem;
+        filter: blur(1rem);
+        -webkit-filter: blur(.5rem);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        
+        &--1{
+            background-image: url("../images/kwame-n.jpeg");
+        }
+
+        &--2{
+            background-image: url("../images/nelson-m.jpg");
+        }
+
+        &--3{
+            background-image: url("../images/desmond-t.jpg");
+        }
+    }
+
+    &__heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        position: absolute;
+        top:12rem;
+        right: 2rem;
+        text-align: right;
+        width: 65%;
+    }
+
+    &__heading-span{
+        padding: 1rem 1.5rem;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        &--1{
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+
+        &--2{
+            background-image: linear-gradient(to right bottom, rgba($color-amber-light, .85), rgba($color-amber-dark, .85));
+        }
+
+        &--3{
+            background-image: linear-gradient(to right bottom, rgba($color-green-light, .85), rgba($color-green-dark, .85));
+        }
+    }
+
+    &__details{
+        padding: 3rem;
+        ul{
+            list-style: none;
+            width: 90%;
+            margin: 0 auto;
+
+            li{
+                text-align: center;
+                font-size: 1.6rem;
+                padding: 1rem;
+                
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+    &__cta{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__answer-box{
+        color: $color-white;
+    }
+
+    &__firstname{
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: -2rem;
+    }
+
+    &__lastname{
+        font-size: 6rem;
+        font-weight: 300;
+    }
+}
